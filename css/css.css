@@ -1,0 +1,387 @@
+
+@font-face {
+    font-family: 'FranklinG Book';
+    src: url('fonts/FranklinGothic-Book.woff2') format('woff2'),
+         url('fonts/FranklinGothic-Book.woff') format('woff');
+    }
+
+@font-face {
+    font-family: 'SWtitle';
+    src: url('fonts/SWCrawlTitle.woff2') format('woff2'),
+         url('fonts/SWCrawlTitle.woff') format('woff');
+    }
+
+@font-face {
+    font-family: 'SWbody';
+    src: url('fonts/SWCrawlBody.woff2') format('woff2'),
+         url('fonts/SWCrawlBody.woff') format('woff');
+    }
+
+@font-face {
+    font-family: 'Space Mono';
+    src: url('fonts/spacemono-bold-webfont.woff2') format('woff2'),
+         url('fonts/spacemono-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+:root {
+    --planetSize: 25vw ;
+    --starWarsYellow: #ffd700 ;
+    --starWarsRed: #c42f2b ;
+    }
+
+
+html , body , div , span , applet , object , iframe , h1 , h2 , h3 , h4 , h5 , h6 , p , blockquote , pre , a , abbr , acronym , address , big , cite , code , del , dfn , em , img , ins , kbd , q , s , samp , small , strike , strong , sub , sup , tt , var , b , u , i , dl , dt , dd , ol , ul , li , fieldset , form , label , legend , table , caption , tbody , tfoot , thead , tr , th , td , article , aside , canvas , details , embed , figure , figcaption , footer , header , menu , nav , output , ruby , section , summary , time , mark , audio , video , main , button , progress {
+	margin: 0 ;
+	padding: 0 ;
+	border: 0 ;
+    }
+
+
+html {
+    height: 100% ;
+    text-rendering: optimizeLegibility ;
+    -ms-text-size-adjust: 100% ;
+    -webkit-text-size-adjust: 100% ;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-size: 125% ;     /* 20px */
+    line-height: 1.5 ;
+    }
+
+body {
+    height: 100% ;
+    background-color: #000 ;
+    overflow: hidden ;
+    }
+
+
+.aLongTimeAgo {
+    color: #5EE2EA ;
+    color: rgb(75,213,238) ;
+    font-size: 2vw ;
+    letter-spacing: 2px ;
+    position: absolute ;
+    top: 50% ;
+    left: 50% ;
+    font-family: "FranklinG Book" , sans-serif ;
+    transform: translate(-50%,-50%) ;
+    will-change: opacity ;
+    animation: fadeInOut 5s ease-in-out forwards ;
+    }
+
+    @keyframes fadeInOut {
+        
+        0% {
+            opacity: 0 ;
+            }
+
+        25% , 75% {
+            opacity: 1 ;
+            }
+
+        99.99% {
+            display: block ;
+            }
+        
+        100% {
+            opacity: 0 ;
+            display: none ;
+            }
+    }
+
+
+.starwars-logo {
+    width: 120% ;
+    position: absolute ;
+    top: 50% ;
+    left: 50% ;
+    opacity: 0 ;
+    z-index: 1 ;
+    transform: translate(-50%,-50%) ;
+    will-change: transform, opacity ;
+    animation: logoOut 14s ease 5s ;
+    }
+
+    @keyframes logoOut {
+
+        10% {
+            opacity: 1 ;
+            }
+
+        80% {
+            opacity: 1 ;
+            }
+        
+        100% {
+            opacity: 0 ;
+            transform: translate(-50%,-50%) scale(.03) ;
+            }
+    }
+
+
+.openingText {
+    width: 100% ;
+    height: 100% ;
+    position: absolute ;
+    top: 0 ; 
+    left: 0 ;
+    }
+
+
+.openingText::after {
+	content: "" ;
+	position: absolute ;
+    width: 100% ;
+    height: 50% ;
+	background-image: linear-gradient(to bottom, rgba(0,0,0,1) 40%, transparent 100%);
+    animation: fadeOut 2s ease-in forwards 94s ;
+    }
+
+@keyframes fadeOut {
+    
+    100% {
+        opacity: 0 ;
+    }
+}
+
+
+
+.scrollingText {
+    position: absolute ;
+    width: 40% ;
+    height: 100% ;
+    left: 29% ;
+    color: var(--starWarsYellow) ;
+    font-size: 2.7vw ;
+    line-height: 1.4 ;
+    font-family: 'SWbody', sans-serif ;
+    letter-spacing: 3px ;
+    -webkit-font-smoothing: antialiased ;
+    transform: perspective(300px) rotateX(35deg) translateY(100%);
+    will-change: transform, opacity ;
+    animation: scrollingText 80s linear forwards 13s ;
+    }
+
+    @keyframes scrollingText {
+        
+        99% {
+            opacity: 1
+            }
+        
+        100% {
+            transform: perspective(240px) rotateX(35deg) translateY(-300%) ;
+            opacity: 0 ;
+            }
+    }
+
+.scrollingText header {
+    text-align: center ;
+    margin-bottom: 1.25em ;
+    line-height: normal ;
+    }
+
+.scrollingText h2 {
+    margin-bottom: .25em ;
+    font-weight: normal ;
+    }
+
+.scrollingText h1 {
+    font-family: 'SWtitle', serif ;
+    font-weight: normal ;
+    font-size: 3rem ;
+    }
+
+.scrollingText p {
+    margin-bottom: 1em ;
+    text-align: justify ;
+    }
+
+
+
+
+
+
+
+.starsBg {
+    position: absolute ;
+    width: 200% ;
+    height: 300% ;
+    top: 0 ;
+    left: -50% ;
+    background-image: url(ui-img/spaceBg.gif) ;
+    background-size: 100% ;
+    z-index: -1 ;
+    will-change: transform ;
+    animation: panning 13s ease-in-out forwards 76s ;
+    }
+
+    @keyframes panning {
+
+        100% {
+            transform: translate(-15% , -50%) rotate(-30deg);
+            }
+
+    }
+
+
+.mainScene {
+    position: absolute ;
+    width: 100% ;
+    height: 100% ;
+    left: 0 ;
+    transform: translate(0,0) scale(1) rotate(12deg) ;
+    will-change: transform ;
+    animation: gotoEarth 13s ease-in-out backwards 76s ;
+    }
+
+    @keyframes gotoEarth {
+
+        0% {
+            transform: translate(50%,220%) scale(0) rotate(-30deg) ;
+            }
+    }
+
+
+
+
+.earth {
+    width:  var(--planetSize) ;
+    height: var(--planetSize) ;
+    position: absolute ;
+    top: 50% ;
+    left: 50% ;
+    overflow: hidden ;
+    border-radius: 100% ;
+    box-shadow: 5vw 0 5vw 2vw rgba(0,0,0,1) ,
+                0   0 1vw rgba(220,235,255,1) ,
+                0   0 3vw .5vw rgba(120,165,255,.85) ;
+    
+    transform: translate(-50%,-50%) ;
+    }
+
+.earth::before {
+    content: "" ;
+    position: absolute ;
+    width: 300% ;
+    height: 100% ;
+    background-color: #0E3475 ;
+    background-image: url(ui-img/earth2K.jpg) ;
+    background-size: auto 100% ;
+    will-change: transform ;
+    animation: rotation 20s infinite linear ;
+    }
+
+.earth::after {
+    content: "" ;
+    position: absolute ;
+    width: 300% ;
+    height: 100% ;
+    background-image: url(ui-img/clouds2K.png) ;
+    background-size: auto 100% ;
+    will-change: transform ;
+    animation: rotation 35s infinite linear ;
+    }
+
+    @keyframes rotation {
+
+        100% {
+            transform: translateX(-66.66%) ;
+        }
+    }
+
+.earth .lighting {
+    position: absolute ;
+    width: var(--planetSize) ;
+    height: var(--planetSize) ;
+    border-radius: var(--planetSize) ;
+    box-shadow: inset -1vw 0  3vw rgba(25,85,195,.3) ,
+                inset -8vw 0 12vw rgba(0,0,0,.95) ,
+                inset  2vw 0  5vw rgba(220,235,255,1) ,
+                inset  8vw 0 15vw rgba(120,165,255,.5) ;
+    z-index: 1 ;
+    }
+    
+
+
+
+.deathStar {
+    width:  calc( var(--planetSize) / 3 ) ;
+    height: calc( var(--planetSize) / 3 ) ;
+    margin-top: calc( var(--planetSize) / 6 * -1 ) ;
+    margin-left: calc( var(--planetSize) / 6 * -1 ) ;
+    position: absolute ;
+    top: 50% ;
+    left: 78% ;
+    overflow: hidden ;
+    border-radius: 100% ;
+    will-change: transform ;
+    animation: orbitPos 20s ease-in-out infinite 11s ,
+               orbitSize 20s linear infinite 11s ;
+    }
+
+.deathStar::before {
+    content: "" ;
+    position: absolute ;
+    width: 300% ;
+    height: 100% ;
+    background-color: dimgray ;
+    background-image: url(ui-img/deathstar.gif) ;
+    background-size: auto 100% ;
+    will-change: transform ;
+    animation: rotation 20s infinite linear ;
+    }
+
+.deathStar .lighting {
+    position: absolute ;
+    width: calc( var(--planetSize) / 3) ;
+    height: calc( var(--planetSize) / 3) ;
+    border-radius: calc( var(--planetSize) / 3) ;
+    box-shadow: inset -.5vw 0  .5vw rgba(55,65,75,.25) ,
+                inset -3vw 0 3vw rgba(0,0,0,.9) ,
+                inset  1vw 0 1vw rgba(175,185,195,.7) ,
+                inset  3.5vw 0 2vw rgba(175,185,195,.65);
+    z-index: 1 ;
+    }
+
+
+    @keyframes orbitPos {
+
+        49.99% {
+            z-index: 1 ;
+            }
+        50% {
+            left: 22% ;
+            z-index: -1 ;
+            }
+
+        100% {
+            z-index: -1 ;
+            }
+    }
+
+
+    @keyframes orbitSize {
+
+        25% {
+            transform: scale(1.4) ;
+            filter: blur(.5px);
+            }
+
+        50% {
+            transform: scale(1) ;
+            filter: blur(0);
+        }
+
+        75% {
+            transform: scale(.6) ;
+            filter: blur(.5px);
+            }
+    }
+
+
+
+
+

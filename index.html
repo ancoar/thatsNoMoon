@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no">       
+    <title>That's no moon!</title>
+
+    <link rel="stylesheet" href="css/css.css">
+</head>
+
+<body>   
+
+
+<p class="aLongTimeAgo">A long time ago in a galaxy not so far,<br>far away…</p>
+
+
+<img src="img/StarWars-logo.svg" class="starwars-logo" alt="Star Wars"> 
+
+   
+<section class="openingText">
+    <div class="scrollingText">
+
+        <header>
+            <h2>Episode IX</h2>
+            <h1>the css animations</h1>
+        </header>
+
+        <p>It is a period of civil war. Rebel spaceships, striking from a hidden base, have won their first victory against the evil Galactic Empire.</p>
+
+        <p>During the battle, Rebel spies managed to steal secret plans to the Empire’s ultimate weapon, the DEATH STAR, an armored space station with enough power to destroy an entire planet.</p>
+
+        <p>Pursued by the Empire’s sinister agents, Princess Leia races home aboard her starship, custodian of the stolen plans that can save her people and restore freedom to the galaxy....</p>
+
+    </div>
+</section>
+    
+
+<section class="starsBg"></section>
+
+
+
+<section class="mainScene">  
+    <div class="earth">  
+        <div class="lighting"></div>    
+    </div>
+    
+    <div class="deathStar">
+        <div class="lighting"></div>
+    </div>
+</section>
+
+
+
+
+<audio class="ost">
+    <source src="media/Star-Wars-Theme-Song-By-John-Williams.mp3" type="audio/mp3">
+</audio>
+
+<script>
+    const audioPlayer = document.querySelector(".ost") ;
+    setTimeout( () => {
+        audioPlayer.play() ;
+      }, 5000) ;
+</script>
+
+</body>
+</html>
